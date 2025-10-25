@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolfbyte - Gallery</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="icon" type="image/png" href="./assets/logo1.1.png">
+
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+  <!-- Header (copied from index.html for consistent nav) -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="./assets/logo.jpg" alt="Wolfbyte Logo" class="w-10 h-10 rounded-full" />
+        <h1 class="text-xl font-semibold">Wolfbyte Keychains</h1>
+      </div>
+
+      <nav class="text-sm font-medium space-x-6">
+        <a href="index.html" class="hover:text-indigo-600">Home</a>
+        <a href="gallery.html" class="hover:text-indigo-600">Gallery</a>
+        <a href="about.html" class="hover:text-indigo-600">About</a>
+        <a href="contact.html" class="hover:text-indigo-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <!-- Gallery (extracted from index.html) -->
+    <section id="gallery" class="mb-16">
+      <h3 class="text-2xl font-semibold mb-8 text-center">Keychain Gallery</h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Keychain Card -->
+        <div class="bg-white rounded-lg shadow hover:shadow-md transition p-4">
+          <img src="./assets/salesimg/1.jpg" class="w-full h-48 object-cover rounded-md" alt="Anime Keychain">
+          <h4 class="text-lg font-semibold mt-3">Anime Character Keychain</h4>
+          <p class="text-gray-600 text-sm mt-1">Perfect for anime fans! Choose your favorite character.</p>
+          <p class="text-indigo-600 font-semibold mt-2">₱35 - ₱60</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow hover:shadow-md transition p-4">
+          <img src="./assets/salesimg/1.jpg" class="w-full h-48 object-cover rounded-md" alt="Name Keychain">
+          <h4 class="text-lg font-semibold mt-3">Custom Name Keychain</h4>
+          <p class="text-gray-600 text-sm mt-1">Your name, your style. Many colors available!</p>
+          <p class="text-indigo-600 font-semibold mt-2">₱20 - ₱45</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow hover:shadow-md transition p-4">
+          <img src="./assets/salesimg/1.jpg" class="w-full h-48 object-cover rounded-md" alt="Game Keychain">
+          <h4 class="text-lg font-semibold mt-3">Gaming Logo Keychain</h4>
+          <p class="text-gray-600 text-sm mt-1">ML, Valorant, Genshin, COD — We print all fandom logos.</p>
+          <p class="text-indigo-600 font-semibold mt-2">₱30 - ₱55</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center text-gray-600 py-6 text-sm">
+    © 2025 Wolfbyte Keychains — All Rights Reserved.
+  </footer>
+
+  <script>
+document.body.style.opacity = 0;
+
+window.addEventListener("load", () => {
+  anime({
+    targets: "body",
+    opacity: [0, 1],
+    easing: "easeInOutQuad",
+    duration: 500
+  });
+});
+
+document.querySelectorAll("a[href]").forEach(link => {
+  if (link.href.includes(location.origin)) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      anime({
+        targets: "body",
+        opacity: [1, 0],
+        easing: "easeInOutQuad",
+        duration: 500,
+        complete: () => { window.location.href = this.href; }
+      });
+    });
+  }
+});
+</script>
+
+</body>
+</html>
